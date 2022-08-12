@@ -17,7 +17,7 @@ def df():
     return df
 
 
-def test_make_fillna_dict_from_pandas_schema(df):
+def test_make_fillna_dict_from_pandas_schema():
     data_schema = {
         "col1": float,
         "col2": int,
@@ -31,3 +31,25 @@ def test_make_fillna_dict_from_pandas_schema(df):
 
 
     assert test_fillna_values == true_fillna_values
+
+
+def test_fillna_df(df: pd.DataFrame):
+    data_schema = {
+        "col1": float,
+        "col2": int,
+        "col3": str,
+        "col4": bool
+    }
+
+    na_by_dtype = {str: "", bool: False, int: 0}
+    fillna_values = make_fillna_dict_from_pandas_schema(data_schema, na_by_dtype)
+    data = [
+        (1., 5, "str", False),
+        (6.6, 321, "", True),
+        (1241, 131, " ", False),
+        (None, 0, "", False)
+    ]
+    df_test = df.fillna(fillna_values).astype(data_schema)
+    df_true = pd.DataFrame(data, columns=["col1", "col2", "col3", "col4"])
+
+    assert df_test.equals(df_true)
