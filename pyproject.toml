@@ -9,6 +9,7 @@ python = "^3.8"
 fastavro = "^1.5.4"
 pandas = "^1.4.3"
 numpy = "^1.23.1"
+pytest = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
