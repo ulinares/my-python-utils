@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "my-python-utils"
+version = "0.1.0"
+description = ""
+authors = ["Uziel Linares <uziel.linares@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastavro = "^1.5.4"
+pandas = "^1.4.3"
+numpy = "^1.23.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+isort = "^5.10.1"
+ipython = "^8.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
